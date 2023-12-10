@@ -1,3 +1,4 @@
+import 'package:cloney/widgets/search_bar.dart';
 import 'package:flutter/material.dart';
 
 class SearchPage extends StatefulWidget {
@@ -56,7 +57,9 @@ class _SearchPageState extends State<SearchPage> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _buildSearchBox(),
+          MySearchBar(
+            (value) {},
+          ),
           Expanded(child: ExploreView(),
           ),
         ],
@@ -65,30 +68,7 @@ class _SearchPageState extends State<SearchPage> {
   }
 }
 
-_buildSearchBox() {
-  return Container(
-    height: 30,
-    margin: const EdgeInsets.only(top: 10, bottom: 10, left: 10, right: 10),
-    child: TextField(
-      decoration: InputDecoration(
-        hintText: "Search",
-        hintStyle: const TextStyle(color: Colors.grey),
-        prefixIcon: const Icon(
-          Icons.search,
-          color: Colors.grey,
-          size: 20,
-        ),
-        filled: true,
-        fillColor: Colors.grey[800],
-        contentPadding: const EdgeInsets.all(0),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(5),
-          borderSide: BorderSide.none,
-        ),
-      ),
-    ),
-  );
-}
+
 
 class ExploreView extends StatelessWidget {
   @override

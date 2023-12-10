@@ -1,3 +1,4 @@
+import 'package:cloney/chat_list_page.dart';
 import 'package:cloney/custom_colors.dart';
 import 'package:cloney/post_item.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,9 @@ class HomePage extends StatelessWidget {
         actions: [
           IconButton(
             icon: const Icon(Icons.send, size: 30, color: Colors.white),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>  ChatListPage()));
+            },
           ),
         ],
         elevation: 0,
@@ -157,7 +160,7 @@ class _PostViewState extends State<PostView> {
                     ),
                   ],
                 ),
-                 InkWell(
+                InkWell(
                   onTap: () {
                     showModalBottomSheet(
                       context: context,
@@ -248,7 +251,7 @@ class _PostViewState extends State<PostView> {
                     color: Colors.white,
                     size: 25,
                   ),
-                 ),
+                ),
               ],
             ),
           ),
@@ -259,7 +262,7 @@ class _PostViewState extends State<PostView> {
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.width,
             fit: BoxFit.cover,
-            placeholder: const AssetImage('assets/images/placeholder.png'),
+            placeholder: const AssetImage('images/placeholder.png'),
             image: NetworkImage(postImage!),
           ),
           Container(
@@ -400,7 +403,8 @@ class _PostViewState extends State<PostView> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                   child: Center(
                     child: Text(
                       'Comments',
@@ -433,14 +437,13 @@ class _PostViewState extends State<PostView> {
   }
 }
 
-class CommentItem  extends StatelessWidget {
-  const CommentItem ({Key? key}) : super(key: key);
+class CommentItem extends StatelessWidget {
+  const CommentItem({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding:
-      const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -504,7 +507,6 @@ class CommentItem  extends StatelessWidget {
                   fontSize: 12,
                 ),
               ),
-
             ],
           ),
         ],
@@ -512,6 +514,7 @@ class CommentItem  extends StatelessWidget {
     );
   }
 }
+
 class story extends StatelessWidget {
   bool isAddStory;
 
@@ -624,7 +627,7 @@ class story extends StatelessWidget {
           ),
           const Text(
             'Your Name',
-            style: TextStyle(fontSize: 12),
+            style: TextStyle(fontSize: 12,),
           ),
         ],
       );
